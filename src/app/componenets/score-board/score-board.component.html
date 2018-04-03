@@ -1,0 +1,22 @@
+<!-- <p class="header">
+  Score board
+</p> -->
+<div class="board-main">
+  <span class="header">Score board</span>
+  <hr class="split-line">
+
+  <ul>
+    <li class="turn">
+      Turn: <b> {{this.boardState.currentTurn}} </b>
+    </li>
+    <li class="result" *ngIf="this?.boardState?.result?.state == 1">
+      Result: <b> {{this.boardState.result.winner}} is the Winner!!!</b>
+    </li>
+    <li class="result" *ngIf="this?.boardState?.result?.state == 2">
+      Game result: It's a draw
+    </li>
+  </ul>
+  <div class="replay">
+    <button (click)="replay()">Play Again</button>
+  </div>
+</div>

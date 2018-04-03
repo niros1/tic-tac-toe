@@ -1,0 +1,36 @@
+html,
+body {
+    height: 100%;
+    margin: auto;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: center;
+    flex-wrap: wrap;
+    align-content: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.app-root {
+    // margin:auto;
+    display: flex;
+
+    justify-content: center;
+    .app-board {
+        order: 1;
+        flex-basis: auto;
+    }
+    .app-score {
+        border: 3px solid #f1f1f1;
+        order: 2;
+        flex-basis: 20%;
+        margin-left: 20px;
+        height: 250px;
+        width: 200px;
+        font-family: Verdana,sans-serif;
+
+    }
+}

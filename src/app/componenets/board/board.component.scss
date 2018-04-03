@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+.main-board {
+    background: radial-gradient(grey,black);
+    width: 600px;
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border: 1px solid #e4e4e4;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: auto;
+
+    .board-column {
+        display: flex;
+        flex-direction: row;
+    }
+    .board-cube {
+        display: block;
+        width: 180px;
+        height: 180px;
+        border: 1px solid #e4e4e4;
+        color: #e4e4e4;
+        font-size: 7em;
+        font-weight: 100;
+        text-align: center;
+        padding: 20px;
+    }
+}

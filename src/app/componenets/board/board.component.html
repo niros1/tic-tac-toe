@@ -1,0 +1,6 @@
+<div class="main-board">
+  
+  <div class="board-cube" *ngFor="let curCube of boardState.boardCubes">
+    <app-cube (cubeClicked)="cubeClicked($event)" [cube]="curCube"></app-cube>
+  </div>
+</div>
