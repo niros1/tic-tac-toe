@@ -1,4 +1,5 @@
 .board-main {
+    color: white;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -15,7 +16,7 @@
         margin: 10px;
     }
     .split-line {
-        border: 3px solid #f1f1f1;
+        border: 1px solid #f1f1f1;
         margin: 10px;
     }
     .replay {
