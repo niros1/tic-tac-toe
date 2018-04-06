@@ -95,11 +95,12 @@ export class Game {
         }
 
         // check diagonals
-        for (let i = 0, j = 4; i <= 2; i = i + 2, j = j - 2) {
-            if (board[i].value !== I && board[i].value === board[i + j].value && board[i + j].value === board[i + 2 * j].value) {
-                this.winner = this.getCurrentTrun();
-                return GAME_STATE.WIN;
-            }
+        if (
+            (board[0].value === board[4].value && board[4].value === board[8].value) ||
+            (board[2].value === board[4].value && board[4].value === board[6].value)
+        ) {
+            this.winner = this.getCurrentTrun();
+            return GAME_STATE.WIN;
         }
 
         if (this.moves === this.boardSize) {

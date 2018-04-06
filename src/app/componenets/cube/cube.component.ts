@@ -16,7 +16,6 @@ export class CubeComponent implements OnInit {
   }
 
   click() {
-    // this.cube.value ="X";
     this.cubeClicked.emit(this.cube);
   }
 
