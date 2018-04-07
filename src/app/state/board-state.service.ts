@@ -30,7 +30,7 @@ export class BoardStateService {
   public markCube(index: number) {
     const cube: Cube = this.boardCubes[index];
     if (!cube) {
-      throw new Error('Error occure - seems like an out of index issue');
+      throw new Error(`Error occure - seems like an out of index issue, index is ${index}`);
     }
 
     if (cube.value !== ' ') {
@@ -40,7 +40,7 @@ export class BoardStateService {
 
     if (cube) {
       cube.value = this.game.getCurrentTrun();
-      this.result = this.game.playTurn();
+      this.result = this.game.playTurn(index);
       this.currentTurn = this.result.nextTurn;
     }
 

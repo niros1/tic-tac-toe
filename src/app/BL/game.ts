@@ -6,7 +6,7 @@ import { IResult } from '../model/result';
 import { Cube } from '../model/cube';
 
 // **This class has some overlap state with the state service.
-// it was written with a thought that the logic can reside outside of the application */
+// it was written with a thought that the logic can reside outside of the application (e.g. server side) */
 @Injectable()
 export class Game {
     private turn: string;
@@ -29,11 +29,17 @@ export class Game {
         return this.turn;
     }
     public getBoard(): Array<Cube> {
-        return this.boardCubes.map((cube) => cube);
+        return this.boardCubes.map((cube) => {
+            const clone = new Cube();
+            clone.index = cube.index;
+            clone.value = cube.value;
+            return clone;
+        });
     }
 
-    public playTurn(): IResult {
+    public playTurn(index: number): IResult {
         this.moves++;
+        this.boardCubes[index].value = this.getCurrentTrun();
         const state: GAME_STATE = this.getGameState();
         if (state !== GAME_STATE.WIN) {
             this.setNextTurn();
