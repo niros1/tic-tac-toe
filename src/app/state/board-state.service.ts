@@ -11,7 +11,6 @@ export class BoardStateService {
 
   public boardCubes: Array<Cube> = [];
   public currentTurn: string;
-  public moves: 0;
   public result: IResult;
 
   constructor(private game: Game) {
@@ -19,14 +18,14 @@ export class BoardStateService {
   }
 
   public replay() {
-    this.game.start();
     this.start();
   }
 
   private start() {
+    this.game.start();
     this.boardCubes = this.game.getBoard();
     this.currentTurn = this.game.getCurrentTrun();
-    this.result = { nextTurn: this.currentTurn, state: GAME_STATE.PLAY, winner: '' };
+    this.result = { nextTurn: this.currentTurn, state: GAME_STATE.PLAY };
   }
   public markCube(index: number) {
     const cube: Cube = this.boardCubes[index];
@@ -38,10 +37,10 @@ export class BoardStateService {
       console.log('seems like this cube was already marked, aboard logic');
       return;
     }
+
     if (cube) {
       cube.value = this.game.getCurrentTrun();
       this.result = this.game.playTurn();
-      console.log(this.result);
       this.currentTurn = this.result.nextTurn;
     }
 

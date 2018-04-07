@@ -16,7 +16,6 @@ export class BoardComponent implements OnInit {
   }
 
   cubeClicked(event: Cube) {
-    console.log(`cube clicked`, event, this.boardState);
     if (this.boardState.result.state === GAME_STATE.PLAY) {
       this.boardState.markCube(event.index);
     }

@@ -17,17 +17,12 @@ export class Game {
 
 
     constructor() {
-        this.start();
     }
 
     public start() {
         this.turn = X;
         this.moves = 0;
         this.boardCubes.length === 0 ? this.initBoard() : this.cleanBoard();
-    }
-
-    public setNextTurn() {
-        this.turn = this.turn === X ? O : X;
     }
 
     public getCurrentTrun(): string {
@@ -51,13 +46,17 @@ export class Game {
         return result;
     }
 
-    public getGameState(): GAME_STATE {
+    private getGameState(): GAME_STATE {
         // At least five moves need to be taken to have a winner.
         if (this.moves < 5) {
             return GAME_STATE.PLAY;
         }
 
         return this.checkState();
+    }
+
+    private setNextTurn() {
+        this.turn = this.turn === X ? O : X;
     }
 
     private initBoard() {
@@ -69,7 +68,7 @@ export class Game {
         }
     }
 
-    cleanBoard() {
+    private cleanBoard() {
         this.boardCubes.forEach((cube: Cube) => {
             cube.clean();
         });
