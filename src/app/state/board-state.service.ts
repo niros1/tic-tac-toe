@@ -5,6 +5,9 @@ import { Game } from '../BL/game';
 import { IResult } from '../model/result';
 import { GAME_STATE } from '../model/game-state';
 
+/**
+ * This class represent the UI state and a bridge to the logic implementation
+ */
 @Injectable()
 export class BoardStateService {
 

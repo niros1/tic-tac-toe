@@ -28,6 +28,11 @@ export class Game {
     public getCurrentTrun(): string {
         return this.turn;
     }
+
+    /**
+     * return a cloned array of the board (could use immutable instead).
+     * Somewhat mimic the behavior in case of a server return a json
+     */
     public getBoard(): Array<Cube> {
         return this.boardCubes.map((cube) => {
             const clone = new Cube();
